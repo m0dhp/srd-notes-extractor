@@ -1,10 +1,10 @@
 from openpyxl import load_workbook
 
-
 ################################################################
 
 SRD_FILE_NAME = 'srd.xlsx'
 DEBUG = False
+
 
 ################################################################
 
@@ -21,7 +21,7 @@ def get_notes(wb, markdown=False):
                 notes.append(f'{"- [ ] " if markdown else ""}{note_text[5:]}')
         except AttributeError:
             pass
-    return(notes)
+    return notes
 
 
 def get_references(wb):
@@ -33,11 +33,11 @@ def get_references(wb):
         remarks = row[7].value
         try:
             if remarks.startswith('Notes: '):
-                clean_remarks = remarks[7:].replace('-','')
+                clean_remarks = remarks[7:].replace('-', '')
                 references.update([int(ref) for ref in clean_remarks.split()])
         except AttributeError:
             pass
-    return(references)
+    return references
 
 
 def write_list(fn, l):
