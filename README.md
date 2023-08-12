@@ -1,4 +1,4 @@
-# SRD Notes Extract
+# SRD Notes Extractor
 
 
 ## Purpose
